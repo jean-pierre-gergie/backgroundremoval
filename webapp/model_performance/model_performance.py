@@ -5,8 +5,10 @@ import  os
 
 PROJECT_ROOT = os.path.dirname(__file__)
 def get_performance_as_bokeh() -> object:
-
-    csv_file_path = os.path.join(PROJECT_ROOT, 'model_performance', 'unet_data.csv')
+    # C:\Users\jpg\Desktop\pythonAItestChrisSakr\webapp\model_performance\unet_data.csv
+    # C:\Users\jpg\Desktop\pythonAItestChrisSakr\webapp\model_performance\model_performance\unet_data.csv
+    csv_file_path = os.path.join(PROJECT_ROOT, 'unet_data.csv')
+    print(f"csv_file_path {csv_file_path}")
     df = pd.read_csv(csv_file_path)
 
 

@@ -82,4 +82,5 @@ def kaggle_api_page():
     return render_template('fineTuning.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.debug = True
+    app.run()

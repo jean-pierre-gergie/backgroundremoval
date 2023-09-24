@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Stream</title>
+    <title>Background Remover</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu_bar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/image-button.css') }}">
 </head>
 <body>
-    <h1>Video Stream</h1>
-    <div style="display: flex; justify-content: space-between;">
+<ul class="menu-bar">
+    <li><a href="{{ url_for('index') }}">Live video Stream</a></li>
+    <li><a href="{{ url_for('chart_page') }}">Go to Graphs</a></li>
+    <li><a href="{{ url_for('kaggle_api_page') }}">Finetune </a></li>
+</ul>
+<div style="display: flex; justify-content: space-between;">
+    <div style="text-align: center;">
+        <p>DeepLabV3p</p>
         <img src="{{ url_for('video_feed') }}" width="320" height="240" style="border: 1px solid black;">
+    </div>
+    <div style="text-align: center;">
+        <p>Unet</p>
         <img src="{{ url_for('video_unet') }}" width="320" height="240" style="border: 1px solid black;">
     </div>
+</div>
+<h2>choose image</h2>
+<button class="image-button">background1</button>
 
-    <a href="{{ url_for('chart_page') }}" class="button">Go to Graphs</a>
-    <a href="{{ url_for('kaggle_api_page') }}" class="button">Finetune models using custom dataset from kaggle</a>
+
+<!--    <a href="{{ url_for('chart_page') }}" class="button">Go to Graphs</a>-->
+<!--    <a href="{{ url_for('kaggle_api_page') }}" class="button">Finetune models using custom dataset from kaggle</a>-->
 
 </body>
 </html>

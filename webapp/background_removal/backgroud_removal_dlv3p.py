@@ -47,11 +47,7 @@ class backgroundRemovalModelDLV3P():
         with CustomObjectScope({'iou': iou, 'dice_coef': dice_coef, 'dice_loss': dice_loss}):
             self.model = tf.keras.models.load_model("models/dlv3p.h5")
 
-
-
-    def pred(self,frame):
-
-
+    def pred(self, frame):
         h, w, _ = frame.shape
         ori_frame = frame
         frame = cv2.resize(frame, (W, H))
@@ -63,18 +59,27 @@ class backgroundRemovalModelDLV3P():
         mask = mask > 0.5
         mask = mask.astype(np.float32)
         mask = np.expand_dims(mask, axis=-1)
-
+        background_image = cv2.imread('static\\images\\im1.jpg')
+        background_image = cv2.resize(background_image, (w, h))
+        # print(background_image.shape)
         photo_mask = mask
+
         background_mask = np.abs(1 - mask)
+        background_mask = np.squeeze(background_mask, axis=-1)
+
+
+        b, g, r = cv2.split(background_image)
+        r_result = (r * background_mask)
+        g_result = (g * background_mask)
+        b_result = (b * background_mask)
+        result_image = cv2.merge((b_result, g_result, r_result))
 
         masked_frame = ori_frame * photo_mask
 
-        background_mask = np.concatenate([background_mask, background_mask, background_mask], axis=-1)
-        background_mask = background_mask * [0, 0, 255]
-        final_frame = masked_frame + background_mask
+        final_frame = masked_frame + result_image
         final_frame = final_frame.astype(np.uint8)
 
-        return  final_frame
+        return final_frame
 
 
 

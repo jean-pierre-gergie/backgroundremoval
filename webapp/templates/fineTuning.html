@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaggle API Command</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu_bar.css') }}">
 </head>
 <body>
+    <ul class="menu-bar">
+        <li><a href="{{ url_for('index') }}">Live video Stream</a></li>
+        <li><a href="{{ url_for('chart_page') }}">Go to Graphs</a></li>
+        <li><a href="{{ url_for('kaggle_api_page') }}">Finetune </a></li>
+    </ul>
     <h1>Fine-Tune  Using Kaggle API Command</h1>
-    <p>Enter your Kaggle API command below:</p>
+    <p>Enter your Kaggle API command below: this feature is not working yet  </p>
 
     <form action="#" method="post" id="api-form">
         <label for="api-command">Kaggle API Command:</label>

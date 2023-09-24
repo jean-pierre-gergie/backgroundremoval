@@ -68,6 +68,8 @@ class backgroundRemovalModelUNET():
         masked_frame = ori_frame * photo_mask
 
         background_mask = np.concatenate([background_mask, background_mask, background_mask], axis=-1)
+
+
         background_mask = background_mask * [0, 0, 255]
         final_frame = masked_frame + background_mask
         final_frame = final_frame.astype(np.uint8)

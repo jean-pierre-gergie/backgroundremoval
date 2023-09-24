@@ -1,0 +1,11 @@
+.image-button {
+    background-image: url('\\static\\images\\im1.jpg'); /* Updated relative path to the image */
+    background-size: cover; /* Adjust this as needed */
+    background-repeat: no-repeat;
+    width: 200px; /* Adjust the button width */
+    height: 50px; /* Adjust the button height */
+    color: white; /* Text color */
+    border: none;
+    cursor: pointer; /* Change cursor to a pointer on hover */
+    /* You can add more styles as needed */
+}

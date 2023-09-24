@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bokeh Chart</title>
+    <title>Unet Performance metrics</title>
     <link rel="stylesheet" href="https://cdn.bokeh.org/bokeh/release/bokeh-3.2.2.min.css" type="text/css" />
     <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.2.2.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu_bar.css') }}">
 
 </head>
 <body>
+    <ul class="menu-bar">
+        <li><a href="{{ url_for('index') }}">Live video Stream</a></li>
+        <li><a href="{{ url_for('chart_page') }}">Go to Graphs</a></li>
+        <li><a href="{{ url_for('kaggle_api_page') }}">Finetune </a></li>
+    </ul>
 
     {{ div|safe }}
     {{ script|safe }}
